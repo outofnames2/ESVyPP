@@ -1,18 +1,12 @@
-let gente = {"id": "gen0",
+let dataset = {"id": "gen0",
 	     "children": [
-		 {"id": "El wACHon",
+		 {"id": "Alvarez Freijomil Facundo Tomas",
 		  "children": [
 		      {"id": "c5",
 		       "children":[
-			   {"id": "trabajo re flashero"},
-			   {"id": "trAbJAo coCAiNomaco"}
+			   {"id": "tp1"},
+			   {"id": "tp2"}
 		       ]},
-		      {"id": "c4",
-		       "children": [
-			   {"id": "uEsa tp con tuco"},
-			   {"id": "apa la papa un tposo sarampioso"},
-			   {"id": "este no lo termine ekisdeh"}
-		       ]}
 		  ]
 		 }
 	     ]}
@@ -38,7 +32,7 @@ graph = graph
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 const treeLayout = d3.tree().size([innerWidth, innerHeight])
-const root = d3.hierarchy(gente);
+const root = d3.hierarchy(dataset);
 const links = treeLayout(root).links();
 const linkPaths = d3.linkVertical()
       .x(d => d.x)

@@ -1,11 +1,11 @@
-#+title: Arboleda Cosmica BiEn cHingona
+#+title: Descricpion del Proceso
 
 * HTML
 #+begin_src html :tangle index.html
   <!DOCTYPE html>
   <html>
     <head>
-      <title> Arboleda Cosmica Bien Chingona </title>
+      <title> [nombre abierto a sugerencias] </title>
       <link href"style.css" rel="stylesheet" type="text/css">
     </head>
     <div>
@@ -21,6 +21,7 @@
 
 * CSS
 #+begin_src css :tangle style.css
+/*por ahora la seccion de css no cumple ninguna funcion*/
   .container {
       width: 250px;
       height: 200px}
@@ -28,26 +29,20 @@
 
 * Javascript
 
-** Defino mi data
+** Definicion de dataset
 #+begin_src javascript :tangle sketch.js
-    let gente = {"id": "gen0",
-		 "children": [
-		     {"id": "El wACHon",
-		      "children": [
-			  {"id": "c5",
-			   "children":[
-			       {"id": "trabajo re flashero"},
-			       {"id": "trAbJAo coCAiNomaco"}
-			   ]},
-			  {"id": "c4",
-			   "children": [
-			       {"id": "uEsa tp con tuco"},
-			       {"id": "apa la papa un tposo sarampioso"},
-			       {"id": "este no lo termine ekisdeh"}
-			   ]}
-		      ]
-		     }
-		 ]}
+  let dataset = {"id": "gen0",
+	       "children": [
+		   {"id": "Alvarez Freijomil Facundo Tomas",
+		    "children": [
+			{"id": "c5",
+			 "children":[
+			     {"id": "tp1"},
+			     {"id": "tp2"}
+			 ]},
+		    ]
+		   }
+	       ]}
 
 #+end_src
 
@@ -74,7 +69,7 @@
 	.attr("transform", `translate(${margin.left}, ${margin.top})`);
 
     const treeLayout = d3.tree().size([innerWidth, innerHeight])
-    const root = d3.hierarchy(gente);
+    const root = d3.hierarchy(dataset);
     const links = treeLayout(root).links();
     const linkPaths = d3.linkVertical()
 	  .x(d => d.x)
