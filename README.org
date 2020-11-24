@@ -31,40 +31,40 @@
 
 ** Definicion de dataset
 #+begin_src javascript :tangle sketch.js
-  let dataset = {"id": "gen0",
+  let dataset = {"id": "Generacion 0",
 		 "children": [
-		     {"id": "Falchetti Santino",
+		     {"id": "FALCHETTI Santino",
 		      "children": [
-			  {"id": "c5",
+			  {"id": "TPs cuatrimestre V",
 			   "children": [
 			       {"id": "tp3"},
 			       {"id": "tp2"}
 			   ]}
 		      ]},
-		   {"id": "Alvarez Freijomil Facundo Tomas",
+		   {"id": "ALVAREZ FREIJOMIL Facundo Tomas",
 		    "children": [
-			{"id": "c5",
+			{"id": "TPs cuatrimestre V",
 			 "children":[
 			     {"id": "tp1",
 			      "children": [
-				  {"id": "1"},
-				  {"id": "2"},
-				  {"id": "3"}
+				  {"id": "01.jpg"},
+				  {"id": "02.jpg"},
+				  {"id": "03.jpg"}
 			      ]},
 			     {"id": "tp2"}
 			 ]},
 		    ]
 		   },
-		   {"id": "Medan Franceze Martin Medan",
+		   {"id": "MEDAN FRANZESE Martin Ignacio",
 		    "children": [
-			{"id": "c5",
+			{"id": "TPs cuatrimestre V",
 			 "children": [
 			     {"id": "tp1"}
 			 ]}
 		    ]},
-		     {"id": "Ahumada Daniel",
+		     {"id": "AHUMADA Daniel Gerardo",
 		      "children": [
-			  {"id": "c5",
+			  {"id": "TPs cuatrimestre V",
 			   "children": [
 			       {"id": "tp1"},
 			       {"id": "tp3"},
@@ -126,7 +126,7 @@
 	.attr("transform", d => `translate(${d.x},${HEIGHT - d.y})`)
 	.attr("fill", d => d3.hsl(55 * d.depth, 1, 0.2 + d.depth * 0.07))
 	.on("mouseover", (_, d) => tooltip.style("visibility", "visible")
-	    .text(d.data.id))
+	    .text(d.data.id).style("font-size", "1.2rem"))
 	.on("mousemove", (_, d) => tooltip.style("top", (event.y-10)+"px")
 	    .style("left",(event.pageX+10)+"px"))
 	.on("mouseout", () => tooltip.style("visibility", "hidden"));
