@@ -1,15 +1,45 @@
 let dataset = {"id": "gen0",
-	     "children": [
+	       "children": [
+		   {"id": "Falchetti Santino",
+		    "children": [
+			{"id": "c5",
+			 "children": [
+			     {"id": "tp3"},
+			     {"id": "tp2"}
+			 ]}
+		    ]},
 		 {"id": "Alvarez Freijomil Facundo Tomas",
 		  "children": [
 		      {"id": "c5",
 		       "children":[
-			   {"id": "tp1"},
+			   {"id": "tp1",
+			    "children": [
+				{"id": "1"},
+				{"id": "2"},
+				{"id": "3"}
+			    ]},
 			   {"id": "tp2"}
 		       ]},
 		  ]
-		 }
-	     ]}
+		 },
+		 {"id": "Medan Franceze Martin Medan",
+		  "children": [
+		      {"id": "c5",
+		       "children": [
+			   {"id": "tp1"}
+		       ]}
+		  ]},
+		   {"id": "Ahumada Daniel",
+		    "children": [
+			{"id": "c5",
+			 "children": [
+			     {"id": "tp1"},
+			     {"id": "tp3"},
+			     {"id": "tp4"}
+			 ]}
+
+		    ]}
+	     ]};
 
 const WIDTH = 800;
 const HEIGHT = 600;
@@ -46,7 +76,7 @@ graph.append("g")
   .data(root.descendants())
   .attr("stroke", "teal")
   .attr("stroke-width", d => 25 - d.depth * 5)
-  .attr("opacity", d => 1 - d.depth*0.3);
+  .attr("opacity", d => 1 - d.depth*0.2);
 
  graph.append("g")
     .selectAll("circle")
