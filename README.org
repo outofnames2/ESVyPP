@@ -9,7 +9,7 @@ poseeria los datos del archivo.
 La estructura de este arbol estaba dada por la carpeta
 del drive de la materia
 
-[[./img/arbol_inicial.png]]
+[[./imgs/arbol_inicial.png]]
 
 * Desarrollo y Conceptualizacion
 Con esta propuesta como base decidimos 
