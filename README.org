@@ -1,5 +1,4 @@
 #+title: Inforest
-#+startup: <l>
 
 * Propuesta Inicial
 La visualizacion ideada en un principio consistia
@@ -10,7 +9,7 @@ poseeria los datos del archivo.
 La estructura de este arbol estaba dada por la carpeta
 del drive de la materia
 
-*** TODO IMAGE
+[[./img/arbol_inicial.png]]
 
 * Desarrollo y Conceptualizacion
 Con esta propuesta como base decidimos 
@@ -18,7 +17,6 @@ cambiar ciertas partes para que comprendan
 una estructura mas amplia que el drive de la materia.
 
 Estos eran los nodos por defecto:
-|         <c>         | <l>          |
 | Profundidad de Nodo | Nombre       |
 |---------------------+--------------|
 |          1          | Tronco comun |
@@ -29,7 +27,6 @@ Estos eran los nodos por defecto:
 
 
 Los cuales pasarian a ser:
-|         <c>         | <l>                              |
 | Profundidad de Nodo | Nombre                           |
 |---------------------+----------------------------------|
 |          1          | Año de cursada                   |
