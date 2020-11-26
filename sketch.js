@@ -24,19 +24,20 @@ let dataset = {"id": "Año 2020",
 
 const WIDTH = 800;
 const HEIGHT = 600;
-const margin = {top:0, right: 0, bottom: 70, left: 0}
+const margin = {top:0, right: 0, bottom: 70, left: 0};
 
 const innerWidth = WIDTH - margin.left - margin.right;
 const innerHeight = HEIGHT - margin.top - margin.bottom;
 
- let tooltip = d3.select("#tooltip")
+let tooltip = d3.select("#tooltip")
     .style("position", "absolute")
     .style("visibility", "hidden");
 
-
+let palette = ["#397168", "#5ca9b9", "#6be2aa"];
 let graph = d3.select("#graph");
 graph = graph
-    .attr("viewBox", `0 0 ${WIDTH + margin.left + margin.right} ${HEIGHT + margin.top + margin.bottom}`)
+    .attr("viewBox", 
+	  `0 0 ${WIDTH + margin.left + margin.right} ${HEIGHT + margin.top + margin.bottom}`)
     .style("max-width", WIDTH)
     .style("max-height", HEIGHT)
     .append("g")
@@ -47,41 +48,53 @@ const root = d3.hierarchy(dataset);
 const links = treeLayout(root).links();
 const linkPaths = d3.linkVertical()
       .x(d => d.x)
-      .y(d => HEIGHT - d.y)
+      .y(d => HEIGHT - d.y);
 
 graph.append("g")
     .attr("fill", "none")
-    .selectAll("path")
-    .data(links)
-    .join("path").attr("d", linkPaths)
-    .data(root.descendants())
     .attr("stroke", "teal")
-    .attr("stroke-width", d => 25 - d.depth * 5)
-    .attr("opacity", d => 1 - d.depth*0.2);
+    .attr("stroke-width", 8)
 
-graph.append("g")
-    .selectAll("circle")
+    .selectAll("path")
     .data(root.descendants())
-    .join("circle")
-    .attr("r", d => d.children ? 20 : 20 + (d.data.value * 1.6))
-    .attr("transform", d => `translate(${d.x},${HEIGHT - d.y})`)
-    .attr("fill", d => d3.hsl(55 * d.depth, 1, 0.2 + d.depth * 0.07))
+    .join("path")
 
-    .on("mouseover", (_, d) => {
-	let text = d.data.id,
-	    files = d.data.value; 
-	tooltip.style("visibility", "visible")
-	    .text(text).style("font-size", "1.2rem")})
-    .on("mousemove", (_, d) => tooltip.style("top", (event.y-10)+"px")
-	.style("left",(event.pageX+10)+"px"))
-    .on("mouseout", () => tooltip.style("visibility", "hidden"));
+    .data(links)
+    .attr("d", linkPaths);
 
-   // graph.append("g")
-   //     .attr("font-family", "sans-serif")
-   //     .attr("text-anchor", "middle")
-   //     .selectAll("text")
-   //     .data(root.descendants())
-   //     .join("text")
-   //     .attr("transform", d => `translate(${d.x},${HEIGHT - d.y})`)
-   //     .text(d => d.data.id)
-   //     .attr("font-size", d => 2 - (d.depth * 0.4) + "rem");
+
+
+
+
+  graph.append("g")
+      .selectAll("circle")
+      .data(root.descendants())
+      .join("circle")
+      .attr("r", d => d.children ? 20 : 20 + (d.data.value * 1.6))
+      .attr("transform", d => `translate(${d.x},${HEIGHT - d.y})`)
+      .attr("fill", d => palette[d.depth])
+
+      .on("mouseover", (_, d) => {
+	  let text = d.data.id,
+	      files = d.data.value; 
+	  tooltip.style("visibility", "visible")
+	      .text(text).style("font-size", "1.2rem")
+      })
+      .on("mousemove", (_, d) => {
+	  let x = event.pageX,
+	      y = event.pageY;
+	  tooltip
+	      .style("top", (y-10)+"px")
+	      .style("left",(x+10)+"px")
+      })
+      .on("mouseout", () => tooltip.style("visibility", "hidden"));
+
+     // graph.append("g")
+     //     .attr("font-family", "sans-serif")
+     //     .attr("text-anchor", "middle")
+     //     .selectAll("text")
+     //     .data(root.descendants())
+     //     .join("text")
+     //     .attr("transform", d => `translate(${d.x},${HEIGHT - d.y})`)
+     //     .text(d => d.data.id)
+     //     .attr("font-size", d => 2 - (d.depth * 0.4) + "rem");
