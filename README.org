@@ -39,8 +39,8 @@ ej; que aumente el tamaño del nodo cuatro cuanto mas archivos tenga (en caso de
 ** Arbol y Bosque
 La estrucura de nodos desde la raiz(primer nodo) a la hoja(ultimo nodo) seria un arbol,
 multiples arboles formarian un bosque, ej; visualizacion de multiples arboles, la raiz de cada uno
-siendo el año de cursada (2018, 2019, 2020).
-
+siendo el año de cursada (2018, 2019, 2020).\n
+[[./imgs/bosque.png]]
 *** PONER BOSQUE DE LOS TRES AÑOS
 
 ** Raiz
