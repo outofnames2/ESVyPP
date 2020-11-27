@@ -39,7 +39,7 @@ ej; que aumente el tamaño del nodo cuatro cuanto mas archivos tenga (en caso de
 ** Arbol y Bosque
 La estrucura de nodos desde la raiz(primer nodo) a la hoja(ultimo nodo) seria un arbol,
 multiples arboles formarian un bosque, ej; visualizacion de multiples arboles, la raiz de cada uno
-siendo el año de cursada (2018, 2019, 2020).\n
+siendo el año de cursada (2018, 2019, 2020).\\
 [[./imgs/bosque.png]]
 *** PONER BOSQUE DE LOS TRES AÑOS
 
@@ -69,7 +69,7 @@ la combinacion de estas opciones seria la semilla ya que afecta en la generacion
 Nosotros implementamos una version simple de esta idea, sin bosques, filtros ni raices seleccionables.
 La meta era ver las posibilidades de visualizacion pasando de una base de datos a un grafo web.
 Utilizamos la libreria d3 para generar un grafico de arbol con una base de datos pequeña para
-ver como se adecua la misma al concepto que estamos trabajando
+ver como se adecua la misma al concepto que estamos trabajando\\
 https://outofnames2.github.io/ESVyPP/
 
 Seria ideal poder adaptarla o devisar una manera de generar arboles mas organicos,
