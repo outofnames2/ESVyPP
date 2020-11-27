@@ -37,18 +37,17 @@ Los cuales pasarian a ser:
 ej; que aumente el tamaño del nodo cuatro cuanto mas archivos tenga (en caso de ser una carpeta)
 
 ** Arbol y Bosque
-La estrucura de nodos desde la raiz(primer nodo) a la hoja(ultimo nodo) seria un arbol,
-multiples arboles formarian un bosque, ej; visualizacion de multiples arboles, la raiz de cada uno
-siendo el año de cursada (2018, 2019, 2020).\\
+La estrucura de nodos desde la =raiz= (primer nodo) a la =hoja= (ultimo nodo) seria un =arbol=,
+multiples arboles formarian un =bosque=.\\
 [[./imgs/bosque.png]]
-*** PONER BOSQUE DE LOS TRES AÑOS
+Ej; posible visualizacion de multiples arboles, la raiz de cada uno siendo el año de cursada (2018, 2019, 2020).
 
 ** Raiz
 El primer nodo y la base del arbol, se dispondria de la capacidad de cambiar de raiz
-que produciria un nuevo arbol desde el nodo deseado. Ej; hacer click en unx alumnx
- resultaria que se genere una nueva raiz en base a su nodo
+que produciria un nuevo arbol desde el nodo deseado. Ej; hacer click en unx alumnx 
+resultaria que se genere una nueva raiz en base a su nodo\\
+[[./imgs/raiz.png]]
 
-*** PONER IMAGEN DE EJEMPLO
 ** Hojas y Tags
 El ultimo nodo; representa los trabajos de lxs estudiantes, estos tendrian acceso al link del tp
 e informacion adicional en la forma de =tags=.
@@ -57,9 +56,9 @@ se veria representado como tags en las hojas y todo tag podria seleccionarse
 conviritendose en un nodo raiz
 
 Es en la relacion de los tags entre si y los parametros que controlan donde yace el potencial
-de la generacion de distintos arboles
+de la generacion de distintos arboles\\
+[[./imgs/raiz.png]]
 
-*** IMAGEN DE TAGS: materia -> trabajos 
 ** Semillas - filtrado de data
 Va a haber informacion que no queramos ver por lo tanto deberiamos ser capaces de filtrar
 los trabajos con ciertos tags (o solo ver trabajos de ciertos tags),
@@ -73,8 +72,10 @@ ver como se adecua la misma al concepto que estamos trabajando\\
 https://outofnames2.github.io/ESVyPP/
 
 Seria ideal poder adaptarla o devisar una manera de generar arboles mas organicos,
-con ramificaciones no tan ordenadas
-*** IMAGEN DE DANI
+con ramificaciones no tan ordenadas\\
+[[./imgs/ejemplo_1.png]]
+En esta imagen se puede observar un ramificacion mas natural.
+
 *** OTRA MAS
 
 Un sistema-L parametrizado y/o una tecnica de "colonizacion del espacio" podria servir para conseguir 
