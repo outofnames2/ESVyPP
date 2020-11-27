@@ -1,5 +1,11 @@
 #+title: Inforest
 
+* Integrantes:
+- Ahumada Daniel Gerardo
+- Alvarez Freijomil Facundo Tomas
+- Falchetti Santino
+- Medan Franzese Martin Ignacio
+
 * Propuesta Inicial
 La visualizacion ideada en un principio consistia
 en una estructura arborea que se bifurcaba a medida
@@ -26,15 +32,16 @@ Estos eran los nodos por defecto:
 |          5          | Archivos     |
 
 
-Los cuales pasarian a ser:
-| Profundidad de Nodo | Nombre                           |
-|---------------------+----------------------------------|
-|          1          | Año de cursada                   |
-|          2          | Alumxns                          |
-|          3          | Trabajos                         |
-|          4          | Archivos*                        |
-*Este nodo es opcional, podria representarse de diferentes maneras,
-ej; que aumente el tamaño del nodo cuatro cuanto mas archivos tenga (en caso de ser una carpeta)
+Los cuales pasarian a ser(incluyendo paleta de guia):
+| Profundidad de Nodo | Nombre         | paleta*                   |
+|---------------------+----------------+---------------------------|
+|                   1 | Año de cursada | [[./imgs/año_paleta.png]]     |
+|                   2 | Alumxns        | [[./imgs/alumnx_paleta.png]]  |
+|                   3 | Trabajos**     | [[./imgs/trabajo_paleta.png]] |
+*En algunas imagenes el color es aproximado
+**El tamaño de este nodo varia segun la cantidad de archivos que formen parte del trabajo
+
+
 
 ** Arbol y Bosque
 La estrucura de nodos desde la =raiz= (primer nodo) a la =hoja= (ultimo nodo) seria un =arbol=,
@@ -58,7 +65,8 @@ conviritendose en un nodo raiz
 Es en la relacion de los tags entre si y los parametros que controlan donde yace el potencial
 de la generacion de distintos arboles\\
 [[./imgs/tags.png]]
-
+El tag de ejemplo "Audio" pasa a ser una raiz con un color diferente (cada tag tendria sus propias propiedades) y 
+el nodo de alumnx pasa como tag ("Autoria") al igual que el del año.
 ** Semillas - filtrado de data
 Va a haber informacion que no queramos ver por lo tanto deberiamos ser capaces de filtrar
 los trabajos con ciertos tags (o solo ver trabajos de ciertos tags),
@@ -67,18 +75,20 @@ la combinacion de estas opciones seria la semilla ya que afecta en la generacion
 * Implementacion
 Nosotros implementamos una version simple de esta idea, sin bosques, filtros ni raices seleccionables.
 La meta era ver las posibilidades de visualizacion pasando de una base de datos a un grafo web.
-Utilizamos la libreria d3 para generar un grafico de arbol con una base de datos pequeña para
+Utilizamos la libreria d3 para generar un grafico de arbol con una base de datos reducida
+(solo los integrantes del grupo como alumnos, y algunos trabajos) para
 ver como se adecua la misma al concepto que estamos trabajando\\
 https://outofnames2.github.io/ESVyPP/
 
-Seria ideal poder adaptarla o devisar una manera de generar arboles mas organicos,
+Proyectando a futuro seria ideal poder adaptarla y/o devisar una manera de generar arboles mas organicos,
 con ramificaciones no tan ordenadas\\
 [[./imgs/ejemplo_1.png]]
 En esta imagen se puede observar un ramificacion mas natural.\\
 [[./imgs/ejemplo_2.png]]
+Otro ejemplo.\\
 
 Un sistema-L parametrizado y/o una tecnica de "colonizacion del espacio" podria servir para conseguir 
-una generacion mas organica. 
+este tipo de generacion mas organica. 
 
 Unos papers al respecto:
 - Sistemas-L Parametricos http://algorithmicbotany.org/papers/hanan.dis1992.pdf
