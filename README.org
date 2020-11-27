@@ -36,17 +36,19 @@ Los cuales pasarian a ser:
 *Este nodo es opcional, podria representarse de diferentes maneras,
 ej; que aumente el tamaño del nodo cuatro cuanto mas archivos tenga (en caso de ser una carpeta)
 
-*** TODO IMAGE
 ** Arbol y Bosque
 La estrucura de nodos desde la raiz(primer nodo) a la hoja(ultimo nodo) seria un arbol,
 multiples arboles formarian un bosque, ej; visualizacion de multiples arboles, la raiz de cada uno
 siendo el año de cursada (2018, 2019, 2020).
-*** TODO IMAGE
+
+*** PONER BOSQUE DE LOS TRES AÑOS
 
 ** Raiz
 El primer nodo y la base del arbol, se dispondria de la capacidad de cambiar de raiz
-que produciria un nuevo arbol desde el nodo deseado. Ej; hacer click en una 
+que produciria un nuevo arbol desde el nodo deseado. Ej; hacer click en unx alumnx
+ resultaria que se genere una nueva raiz en base a su nodo
 
+*** PONER IMAGEN DE EJEMPLO
 ** Hojas y Tags
 El ultimo nodo; representa los trabajos de lxs estudiantes, estos tendrian acceso al link del tp
 e informacion adicional en la forma de =tags=.
@@ -57,18 +59,31 @@ conviritendose en un nodo raiz
 Es en la relacion de los tags entre si y los parametros que controlan donde yace el potencial
 de la generacion de distintos arboles
 
+*** IMAGEN DE TAGS: materia -> trabajos 
 ** Semillas - filtrado de data
 Va a haber informacion que no queramos ver por lo tanto deberiamos ser capaces de filtrar
 los trabajos con ciertos tags (o solo ver trabajos de ciertos tags),
 la combinacion de estas opciones seria la semilla ya que afecta en la generacion de un nuevo 
 
-* Posibles Implementaciones
-Nosotros implementamos una version muy simple de esta idea, sin tags, ni bosques, ni raices seleccionables.
-La idea era ver las posibilidades de visualizacion pasando de una base de datos a un grafo web.
+* Implementacion
+Nosotros implementamos una version simple de esta idea, sin bosques, filtros ni raices seleccionables.
+La meta era ver las posibilidades de visualizacion pasando de una base de datos a un grafo web.
 Utilizamos la libreria d3 para generar un grafico de arbol con una base de datos pequeña para
 ver como se adecua la misma al concepto que estamos trabajando
-*** TODO LINK AL TRABAJO
+https://outofnames2.github.io/ESVyPP/
 
+Seria ideal poder adaptarla o devisar una manera de generar arboles mas organicos,
+con ramificaciones no tan ordenadas
+*** IMAGEN DE DANI
+*** OTRA MAS
+
+Un sistema-L parametrizado y/o una tecnica de "colonizacion del espacio" podria servir para conseguir 
+una generacion mas organica. 
+
+Unos papers al respecto:
+- Sistemas-L Parametricos http://algorithmicbotany.org/papers/hanan.dis1992.pdf
+- Colonizacion del Espacio http://algorithmicbotany.org/papers/colonization.egwnp2007.large.pdf
+- Sistemas-L (en general) http://algorithmicbotany.org/papers/abop/abop.pdf
 
 * Descripcion del Codigo
 ** HTML
@@ -93,37 +108,65 @@ ver como se adecua la misma al concepto que estamos trabajando
 
 ** CSS
 #+begin_src css :tangle style.css
-/*por ahora la seccion de css no cumple ninguna funcion*/
-  .container {
-      width: 250px;
-      height: 200px}
+
+/*nada que ver aqui*/
+
 #+end_src
 
 ** Javascript
 
 *** Definicion de dataset
 #+begin_src javascript :tangle sketch.js
+  let materias = ["Estructuras Sonoras y Visuales", "Taller de Produccion y Postproduccion"]
   let dataset = {"id": "Año 2020",
 		 "children": [
 		     {"id": "FALCHETTI Santino",
 		      "children": [
-			  {"id": "tp3", "value": 3},
-			  {"id": "tp2", "value":11}
+			  {"id": "Tp06_T_Recuerdo.pdf"
+			   , "archivos": 1
+			   , "url": "https://drive.google.com/file/d/15UXdnx74zdXGmwwTVVRGlEQ5fyBBlRb0"
+			   , "materia": materias[1]},
+			  {"id": "herbario"
+			   , "archivos":11,
+			   "url": "https://drive.google.com/drive/folders/18n0FqYa1gQBogRD0Ry2PLP1V_LKj08K2"
+			   ,"materia": materias[0]}
 		      ]},
 		     {"id": "ALVAREZ FREIJOMIL Facundo Tomas",
 		      "children": [
-			  {"id": "tp1", "value":6},
-			  {"id": "tp2", "value":8}
+			  {"id": "Alvarez_Facundo_Tp_08_T_Transformaciones"
+			   , "archivos":10
+			   , "url": "https://drive.google.com/drive/folders/1163zusXN4K1m_qDq12wKeziZBuw3gB99"
+			   , "materia": materias[1]},
+			  {"id": "Alvarez_Facundo_Tp04_E_Codex_Vegetal"
+			   , "archivos":11
+			   , "url": "https://drive.google.com/drive/folders/1XSxkged5u6AD8vV_fPzpO3OXWrDoUMGq"
+			   , "materia": materias[0]}
 		      ]},
 		     {"id": "MEDAN FRANZESE Martin Ignacio",
 		      "children": [
-			  {"id": "tp1", "value":5}
+			  {"id": "Tp7"
+			   ,"archivos":11
+			   ,"url": "https://drive.google.com/drive/folders/1its4uymKEchEBWxB2lMKvioEytQ49qOC"
+			   ,"materia": materias[1]},
+			  {"id": "Tp10"
+			   ,"archivos": 1
+			   ,"url": "https://drive.google.com/file/d/1Ee2dvwMNiRq0pRr9wmZh96s7uwe1CckK/view"
+			   ,"materia": materias[1]}
 		      ]},
 		     {"id": "AHUMADA Daniel Gerardo",
 		      "children": [
-			  {"id": "tp1", "value":4},
-			  {"id": "tp3", "value":6},
-			  {"id": "tp4", "value":8}
+			  {"id": "proyecto flash"
+			   , "archivos":1
+			   , "url":  "https://drive.google.com/file/d/1saur2QY9QH8Y0I7komQMXVXNlDEV3yiZ/view"
+			   , "materia": materias[0]},
+			  {"id": "TP 6 RECUERDO"
+			   , "archivos":18
+			   , "url": "https://drive.google.com/drive/folders/1nz5DkGTNDVEyIAN5sm75w9GEoSN7O_KY"
+			   , "materia": materias[1]},
+			  {"id": "TP3_E_AUTORETRATO"
+			   , "archivos":1
+			   , "url": "https://drive.google.com/file/d/1F5NvQq7bi_HW0u2SHiyMF4hEEvP2ITnO/view"
+			   , "materia": materias[0]}
 		      ]}
 		 ]};
 
@@ -140,13 +183,19 @@ ver como se adecua la misma al concepto que estamos trabajando
 
   let tooltip = d3.select("#tooltip")
       .style("position", "absolute")
-      .style("visibility", "hidden");
+      .style("visibility", "hidden")
+      .style("white-space", "pre-line")
 
-  let palette = ["#397168", "#5ca9b9", "#6be2aa"];
+      .style("background-color", "white")
+      .style("opacity", "0.7");
+
+  let palette = ["black", "#b20000", "#00cc99"];
   let graph = d3.select("#graph");
   graph = graph
       .attr("viewBox", 
 	    `0 0 ${WIDTH + margin.left + margin.right} ${HEIGHT + margin.top + margin.bottom}`)
+      .attr("xmlns","http://www.w3.org/2000/svg" )
+      .attr("xmlns:xlink","http://www.w3.org/1999/xlink" )
       .style("max-width", WIDTH)
       .style("max-height", HEIGHT)
       .append("g")
@@ -174,41 +223,31 @@ ver como se adecua la misma al concepto que estamos trabajando
       .data(links)
       .attr("d", linkPaths);
 
+  graph.append("g")
+      .selectAll("circle")
+      .data(root.descendants())
+      .join("svg:a").attr("xlink:href", d => d.data.url)
+      .append("circle")
+      .attr("r", d => d.children ? 20 : 10 + (d.data.archivos * 1.6))
+      .attr("transform", d => `translate(${d.x},${HEIGHT - d.y})`)
+      .attr("fill", d => palette[d.depth])
 
 
-
-
-    graph.append("g")
-	.selectAll("circle")
-	.data(root.descendants())
-	.join("circle")
-	.attr("r", d => d.children ? 20 : 20 + (d.data.value * 1.6))
-	.attr("transform", d => `translate(${d.x},${HEIGHT - d.y})`)
-	.attr("fill", d => palette[d.depth])
-
-	.on("mouseover", (_, d) => {
-	    let text = d.data.id,
-		files = d.data.value; 
-	    tooltip.style("visibility", "visible")
-		.text(text).style("font-size", "1.2rem")
+      .on("mouseover", (_, d) => {
+	  let id = d.data.id,
+	      archivos = d.data.archivos,
+	      materia = d.data.materia;
+	  tooltip.style("visibility", "visible")
+	      .text(d.children ? id : `TP: ${id}\n Cantidad de archivos: ${archivos}\n Materia: ${materia}`)
+	      .style("font-size", "1.2rem")
 	})
-	.on("mousemove", (_, d) => {
+      .on("mousemove", (_, d) => {
 	    let x = event.pageX,
 		y = event.pageY;
 	    tooltip
 		.style("top", (y-10)+"px")
 		.style("left",(x+10)+"px")
 	})
-	.on("mouseout", () => tooltip.style("visibility", "hidden"));
-
-       // graph.append("g")
-       //     .attr("font-family", "sans-serif")
-       //     .attr("text-anchor", "middle")
-       //     .selectAll("text")
-       //     .data(root.descendants())
-       //     .join("text")
-       //     .attr("transform", d => `translate(${d.x},${HEIGHT - d.y})`)
-       //     .text(d => d.data.id)
-       //     .attr("font-size", d => 2 - (d.depth * 0.4) + "rem");
+      .on("mouseout", () => tooltip.style("visibility", "hidden"));
 
 #+end_src
