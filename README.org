@@ -95,7 +95,7 @@ Unos papers al respecto:
 - Colonizacion del Espacio http://algorithmicbotany.org/papers/colonization.egwnp2007.large.pdf
 - Sistemas-L (en general) http://algorithmicbotany.org/papers/abop/abop.pdf
 
-* Descripcion del Codigo
+* Codigo
 ** HTML
 #+begin_src html :tangle index.html
   <!DOCTYPE html>
