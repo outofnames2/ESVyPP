@@ -57,7 +57,7 @@ conviritendose en un nodo raiz
 
 Es en la relacion de los tags entre si y los parametros que controlan donde yace el potencial
 de la generacion de distintos arboles\\
-[[./imgs/raiz.png]]
+[[./imgs/tags.png]]
 
 ** Semillas - filtrado de data
 Va a haber informacion que no queramos ver por lo tanto deberiamos ser capaces de filtrar
@@ -74,9 +74,8 @@ https://outofnames2.github.io/ESVyPP/
 Seria ideal poder adaptarla o devisar una manera de generar arboles mas organicos,
 con ramificaciones no tan ordenadas\\
 [[./imgs/ejemplo_1.png]]
-En esta imagen se puede observar un ramificacion mas natural.
-
-*** OTRA MAS
+En esta imagen se puede observar un ramificacion mas natural.\\
+[[./imgs/ejemplo_2.png]]
 
 Un sistema-L parametrizado y/o una tecnica de "colonizacion del espacio" podria servir para conseguir 
 una generacion mas organica. 
