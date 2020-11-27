@@ -123,13 +123,3 @@ graph.append("g")
 	      .style("left",(x+10)+"px")
       })
     .on("mouseout", () => tooltip.style("visibility", "hidden"));
-
-     // graph.append("g")
-     //     .attr("font-family", "sans-serif")
-     //     .attr("text-anchor", "middle")
-     //     .selectAll("text")
-     //     .data(root.descendants())
-     //     .join("text")
-     //     .attr("transform", d => `translate(${d.x},${HEIGHT - d.y})`)
-     //     .text(d => d.data.id)
-     //     .attr("font-size", d => 2 - (d.depth * 0.4) + "rem");
